@@ -1,0 +1,65 @@
+{
+  "version": "v1",
+  "config": {
+    "visState": {
+      "layers": [
+        {
+          "id": "hsklbmc",
+          "type": "geojson",
+          "config": {
+            "dataId": "Space needle",
+            "label": "Space needle",
+            "color": [
+              241,
+              92,
+              23
+            ],
+            "columns": {
+              "geojson": "point"
+            },
+            "isVisible": true,
+            "visConfig": {
+              "opacity": 0.8,
+              "radius": 10,
+              "filled": true,
+              "stroked": false
+            }
+          },
+          "visualChannels": {
+            "colorField": null,
+            "colorScale": "quantile",
+            "sizeField": null,
+            "sizeScale": "linear"
+          }
+        }
+      ],
+      "interactionConfig": {
+        "tooltip": {
+          "fieldsToShow": {
+            "Space needle": []
+          },
+          "enabled": true
+        }
+      },
+      "layerBlending": "normal"
+    },
+    "mapState": {
+      "bearing": 0,
+      "dragRotate": false,
+      "latitude": 47.620818198761356,
+      "longitude": -122.3490232003723,
+      "pitch": 0,
+      "zoom": 16.201693022071215
+    },
+    "mapStyle": {
+      "styleType": "dark-matter",
+      "visibleLayerGroups": {
+        "label": true,
+        "road": true,
+        "building": true,
+        "water": true,
+        "land": true
+      }
+    }
+  }
+}
