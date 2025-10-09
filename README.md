@@ -41,8 +41,8 @@ To earn your certificate:
 1. **Clone this repo**
 
 ```bash
-git clone https://github.com/your-org/modern-geospatial-data-engineering.git
-cd modern-geospatial-data-engineering
+git clone https://github.com/wherobots/geospatial-data-engineering-associate.git
+cd geospatial-data-engineering-associate
 ```
 
 2. **Sign up for Wherobots**
