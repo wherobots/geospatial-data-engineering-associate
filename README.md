@@ -23,7 +23,7 @@ This repository contains the code, data references, and weekly exercises we’ll
 To earn your certificate:
 
 1. Complete each weekly exercise.
-2. Export your final notebook as a `.txt` file.
+2. Export your final notebook as a `.md` file.
 3. Submit at the end of each week (you’ll be prompted with the link).
 
 ---
