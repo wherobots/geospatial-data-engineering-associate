@@ -1,0 +1,89 @@
+# Instructions
+
+- Each section should be a job
+- Assets
+    - Notebook
+    - Job
+- Create a new "silver" table that contains the values tied to a home ID
+- Import home sales
+
+## Simple Joins - Matt
+
+- Seismic Areas - which one is it in
+- Flood Plain Indicator
+- School Quality
+
+## KNN - Pranav
+
+- Historic price trend of N=100
+- POI (for Walk Scores)
+    - Coffee Shop
+    - Grocery Store
+    - Child Care
+    - Gym
+    - Hospital
+- Bus Stops
+- Transit "Stations" or Hubs
+- Light Rail Access (within reasonable distance)
+
+## Shortest Path - Furqaan
+
+- Distance to nearest larger water body smaller than X sq meters
+
+## Isochones - Pranav
+
+- Number of "interesting places" within N minutes (drive)
+
+## Area Weighted Interpolation - Matt
+
+- Median Income
+- Total Population
+- Pop Density
+- Median Age
+- Zoning 
+    - Single Family
+    - Multi Family
+    - Industrial
+    - Retail
+
+## Zonal Stats - Furqaan
+
+- Slope of parcel
+- Elevation stats
+- Elevation change within N kilometers (ruggedness index)
+
+## Buffer or Nearest Within - Matt
+
+- Distance to nearest park
+- Distance to "Downtown"
+- Crimes Severe
+- Crimes non-Severe
+
+## Determine Road Arteries + KNN - Matt
+
+- Major intersection proximity (ST_Intersection -> POINT)
+
+## NDVI - Furqaan
+
+- Greenspace within N kilometers
+
+## 3D Visibility -  Matt
+
+- View of Mt. Rainer + Elevation
+- View of Space Needle + Elevation
+
+https://abelvm.github.io/sql/isovists/
+
+## Simple Calculation - Matt
+
+- Lot Size
+
+# Clean Up Tasks - Matt
+
+- Join Census demos to polygons
+- Clean and drop CSV header rows
+- Schools to scores
+
+# Gold Table Tasks
+
+- Walk Score
