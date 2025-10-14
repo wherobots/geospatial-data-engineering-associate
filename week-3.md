@@ -2,8 +2,8 @@
 
 - Each section should be a job
 - Assets
-    - Notebook
-    - Job
+    - Notebook - Scaled Down (specific area)
+    - Job - complete run
 - Create a new "silver" table that contains the values tied to a home ID
 - Import home sales
 
