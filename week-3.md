@@ -7,10 +7,14 @@
 - Create a new "silver" table that contains the values tied to a home ID
 - Import home sales
 
+## Conflation
+
+- [X] Done
+
 ## Simple Joins - Matt
 
-- Seismic Areas - which one is it in
-- Flood Plain Indicator
+- [X] Seismic Areas - which one is it in
+- [X] Flood Plain Indicator
 - School Quality
 
 ## KNN - Pranav
@@ -87,3 +91,19 @@ https://abelvm.github.io/sql/isovists/
 # Gold Table Tasks
 
 - Walk Score
+
+
+~/Users/mattforrest/Documents/geospatial-data-engineering-associate/week-3/
+
+update org_catalog.gde_bronze.king_co_homes
+set geometry = st_point(longitude, latitude) 
+
+select                                                                                                      
+a.sale_id,                                                                                                  
+b.OBJECTID as  
+hazard_id,                                                                                                  
+b.HAZARD as 
+hazard                                                                                                     
+from org_catalog.gde_bronze.king_co_homes a 
+join org_catalog.gde_bronze.seismic_hazards_bronze b  
+on st_contains(a.geometry, b.geometry)
