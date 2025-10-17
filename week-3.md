@@ -9,13 +9,13 @@
 
 ## Conflation
 
-- [X] Done
+- [x] Done
 
 ## Simple Joins - Matt
 
-- [X] Seismic Areas - which one is it in
-- [X] Flood Plain Indicator
-- School Quality
+- [x] Seismic Areas - which one is it in
+- [x] Flood Plain Indicator
+- [x] School Quality
 
 ## KNN - Pranav
 
@@ -84,8 +84,8 @@ https://abelvm.github.io/sql/isovists/
 
 # Clean Up Tasks - Matt
 
-- Join Census demos to polygons
-- Clean and drop CSV header rows
+- [x] Join Census demos to polygons
+- [x] Clean and drop CSV header rows
 - Schools to scores
 
 # Gold Table Tasks
