@@ -1,26 +1,22 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[ ]:
+# In[1]:
 
 
 from sedona.spark import *
-
-
-# In[ ]:
-
 
 config = SedonaContext.builder().getOrCreate()
 sedona = SedonaContext.create(config)
 
 
-# In[ ]:
+# In[3]:
 
 
 database = 'gde_bronze'
 
 
-# In[ ]:
+# In[6]:
 
 
 sedona.sql(f'''
@@ -29,30 +25,30 @@ set geometry = ST_Transform(ST_MakeValid(geometry), 'EPSG:4326')
 ''')
 
 
-# In[ ]:
+# In[7]:
 
 
 sedona.sql(f'''
 update org_catalog.{database}.gen_land_use_bronze
-set geometry = ST_SetSRID(ST_MakeValid(geometry), 4326)
+set geometry = ST_Transform(ST_MakeValid(geometry), 'EPSG:6599', 'EPSG:4326')
 ''')
 
 
-# In[ ]:
+# In[11]:
 
 
 sedona.sql(f'''
 update org_catalog.{database}.sherrif_districts_bronze
-set geometry = ST_SetSRID(ST_MakeValid(geometry), 4326)
+set geometry = ST_Transform(ST_MakeValid(geometry), 'EPSG:2926', 'EPSG:4326')
 ''')
 
 
-# In[ ]:
+# In[12]:
 
 
 sedona.sql(f'''
 update org_catalog.{database}.bike_lanes_bronze
-set geometry = ST_SetSRID(ST_MakeValid(geometry), 4326)
+set geometry = ST_Transform(ST_MakeValid(geometry), 'EPSG:2926', 'EPSG:4326')
 ''')
 
 
@@ -65,25 +61,25 @@ set geometry = ST_Transform(ST_MakeValid(geometry), 'EPSG:4326')
 ''')
 
 
-# In[ ]:
+# In[19]:
 
 
 sedona.sql(f'''
 update org_catalog.{database}.school_sites_bronze
-set geometry = ST_SetSRID(ST_MakeValid(geometry), 4326)
+set geometry = ST_Transform(ST_MakeValid(geometry), 'EPSG:2926', 'EPSG:4326')
 ''')
 
 
-# In[ ]:
+# In[20]:
 
 
 sedona.sql(f'''
 update org_catalog.{database}.seismic_hazards_bronze
-set geometry = ST_SetSRID(ST_MakeValid(geometry), 4326)
+set geometry = ST_Transform(ST_MakeValid(geometry),  'EPSG:2926', 'EPSG:4326')
 ''')
 
 
-# In[ ]:
+# In[21]:
 
 
 sedona.sql(f'''
@@ -92,34 +88,25 @@ set geometry = ST_Transform(ST_MakeValid(geometry), 'EPSG:4326')
 ''')
 
 
-# In[ ]:
+# In[22]:
 
 
 sedona.sql(f'''
 update org_catalog.{database}.transit_routes_bronze
-set geometry = ST_SetSRID(ST_MakeValid(geometry), 4326)
+set geometry = ST_Transform(ST_MakeValid(geometry),  'EPSG:2926', 'EPSG:4326')
 ''')
 
 
-# In[ ]:
+# In[23]:
 
 
 sedona.sql(f'''
 update org_catalog.{database}.transit_stops_bronze
-set geometry = ST_SetSRID(ST_MakeValid(geometry), 4326)
+set geometry = ST_Transform(ST_MakeValid(geometry),  'EPSG:2926', 'EPSG:4326')
 ''')
 
 
-# In[ ]:
-
-
-sedona.sql(f'''
-update org_catalog.{database}.water_bodies_bronze
-set geometry = ST_SetSRID(ST_MakeValid(geometry), 4326)
-''')
-
-
-# In[ ]:
+# In[25]:
 
 
 sedona.sql(f'''
@@ -128,10 +115,17 @@ set geometry = ST_Transform(ST_MakeValid(geometry), 'EPSG:4326')
 ''')
 
 
-# In[ ]:
+# In[28]:
 
 
 sedona.sql(f'''
 update org_catalog.{database}.schools_bronze
 set geometry = ST_SetSRID(ST_MakeValid(geometry), 4326)
 ''')
+
+
+# In[ ]:
+
+
+
+
