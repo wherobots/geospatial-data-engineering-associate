@@ -7,16 +7,6 @@
 - Create a new "silver" table that contains the values tied to a home ID
 - Import home sales
 
-## Conflation
-
-- [x] Done
-
-## Simple Joins - Matt
-
-- [x] Seismic Areas - which one is it in
-- [x] Flood Plain Indicator
-- [x] School Quality
-
 ## KNN - Pranav
 
 - Historic price trend of N=100
@@ -38,38 +28,56 @@
 
 - Number of "interesting places" within N minutes (drive)
 
-## Area Weighted Interpolation - Matt
-
-- Median Income
-- Total Population
-- Pop Density
-- Median Age
-- Zoning 
-    - Single Family
-    - Multi Family
-    - Industrial
-    - Retail
-
 ## Zonal Stats - Furqaan
 
 - Slope of parcel
 - Elevation stats
 - Elevation change within N kilometers (ruggedness index)
 
-## Buffer or Nearest Within - Matt
-
-- Distance to nearest park
-- Distance to "Downtown"
-- Crimes Severe
-- Crimes non-Severe
-
-## Determine Road Arteries + KNN - Matt
-
-- Major intersection proximity (ST_Intersection -> POINT)
-
 ## NDVI - Furqaan
 
 - Greenspace within N kilometers
+
+
+# Complete
+
+## ~~Clean Up Tasks - Matt~~
+
+- [x] Join Census demos to polygons
+- [x] Clean and drop CSV header rows
+- [x] Schools to scores
+
+## ~~Conflation~~
+
+- [x] Done
+
+## ~~Simple Joins - Matt~~
+
+- [x] Seismic Areas - which one is it in
+- [x] Flood Plain Indicator
+- [x] School Quality
+
+## ~~Area Weighted Interpolation - Matt~~
+
+- [X] Median Income
+- [X] Total Population
+- [X] Pop Density
+- [X] Median Age
+- [] Zoning - Running into some issues here with the join/intersection
+    - [X] Single Family
+    - [X] Multi Family
+    - [X] Industrial
+    - [X] Retail
+
+
+## ~~Buffer or Nearest Within - Matt~~
+
+- [x] Distance to nearest park
+- [x] Distance to "Downtown"
+
+## ~~Determine Road Arteries + KNN - Matt~~
+
+- [x] Major intersection proximity (ST_Intersection -> POINT)
 
 ## 3D Visibility -  Matt
 
@@ -78,32 +86,5 @@
 
 https://abelvm.github.io/sql/isovists/
 
-## Simple Calculation - Matt
 
-- Lot Size
-
-# Clean Up Tasks - Matt
-
-- [x] Join Census demos to polygons
-- [x] Clean and drop CSV header rows
-- Schools to scores
-
-# Gold Table Tasks
-
-- Walk Score
-
-
-~/Users/mattforrest/Documents/geospatial-data-engineering-associate/week-3/
-
-update org_catalog.gde_bronze.king_co_homes
-set geometry = st_point(longitude, latitude) 
-
-select                                                                                                      
-a.sale_id,                                                                                                  
-b.OBJECTID as  
-hazard_id,                                                                                                  
-b.HAZARD as 
-hazard                                                                                                     
-from org_catalog.gde_bronze.king_co_homes a 
-join org_catalog.gde_bronze.seismic_hazards_bronze b  
-on st_contains(a.geometry, b.geometry)
+- Get buildings and elev at centroids of buildings

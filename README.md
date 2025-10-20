@@ -230,7 +230,7 @@ Install and connect **Harlequin with the Wherobots adapter**:
 
 ```bash
 pip install harlequin-wherobots
-harlequin -a wherobots --api-key <YOUR_API_KEY> --runtime SEDONA --region AWS_US_WEST_2
+harlequin -a wherobots --api-key <YOUR_API_KEY> --runtime TINY --region AWS_US_WEST_2
 ```
 
 Once connected, verify your table’s geometry integrity and projection.
