@@ -106,6 +106,14 @@ set geometry = ST_Transform(ST_MakeValid(geometry),  'EPSG:2926', 'EPSG:4326')
 ''')
 
 
+# In[24]:
+
+sedona.sql(f'''
+update org_catalog.gde_bronze.water_bodies_bronze
+set geometry = ST_Transform(ST_MakeValid(geometry), 'EPSG:2926', 'EPSG:4326')
+''')
+
+
 # In[25]:
 
 
