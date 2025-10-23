@@ -101,7 +101,7 @@ FROM
 JOIN
     elevation_raster e
 ON
-    ST_Intersects(h.geometry_buffer, e.geometry)
+    RS_Intersects(h.geometry_buffer, e.rast)
 )
 
 SELECT
