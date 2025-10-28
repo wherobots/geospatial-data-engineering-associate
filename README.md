@@ -249,7 +249,3 @@ Estimates assume normal workloads in US East or US West regions.
 
 > 💡 **Tip:** Use bounding boxes wherever possible to lower runtime and cost.
 > Review intermediate outputs and terminate runtimes when idle to avoid unnecessary Spatial Unit consumption.
-
----
-
-Once you’ve completed all Silver-level workflows, your data will be structured, cleaned, and spatially joined—ready for **Gold-level analytics** and final transformations in Week 4.
