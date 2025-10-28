@@ -39,7 +39,7 @@ _aoi = wkls.us.wa.kirkland.wkt()
 try:
     print(" **** Trying to load house_sales_silver dataset from gde_silver database **** \n\n")
     house_sales_df = (
-        sedona.table(f"org_catalog.gde_silver.house_sales_silver")
+        sedona.table(f"org_catalog.gde_silver.king_co_homes")
                 .where(f"ST_Intersects(geometry, ST_GeomFromWKT('{_aoi}'))")
                 .withColumn("geometry_buffer", expr("ST_Buffer(geometry, 500, true)"))
     )
@@ -48,7 +48,7 @@ except AnalysisException as e:
     print(" **** house_sales_silver table doesn't exist, reading the gde_bronze.house_sales_bronze **** \n\n")
 
     house_sales_df = (
-        sedona.table(f"org_catalog.gde_bronze.house_sales_bronze")
+        sedona.table(f"org_catalog.gde_bronze.house_sales_king_co_homesbronze")
                 .where(f"ST_Intersects(geometry, ST_GeomFromWKT('{_aoi}'))")
                 .withColumn("geometry_buffer", expr("ST_Buffer(geometry, 500, true)"))
     )
@@ -98,4 +98,4 @@ WHERE
 
 print(" **** Writing the enriched house sales data to gde_silver.house_sales_silver **** \n\n")
 
-water_closest_house.drop("geometry_buffer").writeTo("org_catalog.gde_silver.house_sales_silver").createOrReplace()
+water_closest_house.drop("geometry_buffer").writeTo("org_catalog.gde_silver.king_co_homes").createOrReplace()
