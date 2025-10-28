@@ -245,7 +245,39 @@ Estimates assume normal workloads in US East or US West regions.
 | raster-ndvi                 | Tiny (with bounding area)   | 7 min / $0.90                           |
 | raster-zonal-stats          | Tiny (with bounding area)   | 4 min / $0.50                           |
 | area-weighted-interpolation | Medium (with bounding area) | 8 min / $10.00                          |
-                     |
 
 > 💡 **Tip:** Use bounding boxes wherever possible to lower runtime and cost.
 > Review intermediate outputs and terminate runtimes when idle to avoid unnecessary Spatial Unit consumption.
+
+## Week 4 — Gold Layers and Advanced Analytics
+
+### Goals
+
+* Move from Silver to Gold tables.
+* Optimize for fast, analytics-ready access.
+* Perform clustering workflows at scale.
+* Generate hotspot analysis using Getis-Ord statistics.
+* Publish fast visualization assets like PMTiles.
+
+---
+
+### Step 1 – Run All Week 4 Notebooks
+
+There are **four notebooks** this week. You can run them interactively in Wherobots Cloud or submit them as Jobs using the same API process from earlier weeks.
+
+Required notebooks:
+
+* `week-4-pmtiles`
+* `week-4-analytics-ready`
+* `week-4-clustering`
+* `week-4-getis`
+
+Before running these, confirm Week 3 Silver outputs are present and validated.
+
+### Final Notes Before Completing Week 4
+
+* Verify output tables and PMTiles render correctly (in notebook)
+* Confirm clustering and hotspot scores align with expectations in several test areas.
+* Make sure naming conventions for Gold layers are clean and documented.
+
+Once all four workflows have run successfully, Week 4 is complete and you have a full Bronze-Silver-Gold modern geospatial pipeline.
