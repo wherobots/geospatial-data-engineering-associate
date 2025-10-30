@@ -66,7 +66,7 @@ _aoi = wkls.us.wa.kirkland.wkt()
 try:
     print("**** Trying to load house_sales_silver dataset from gde_silver database **** \n\n")
     house_sales_df = (
-        sedona.table(f"org_catalog.gde_silver.king_co_homes")
+        sedona.table(f"org_catalog.gde_silver.house_sales_silver")
                 .where(f"ST_Intersects(geometry, ST_GeomFromWKT('{_aoi}'))")
                 .withColumn("geometry_buffer", expr("ST_Buffer(geometry, 500, true)"))
     )
@@ -75,7 +75,7 @@ except AnalysisException as e:
     print("**** house_sales_silver table doesn't exist, reading the gde_bronze.house_sales_bronze **** \n\n")
 
     house_sales_df = (
-        sedona.table(f"org_catalog.gde_bronze.house_sales_king_co_homesbronze")
+        sedona.table(f"org_catalog.gde_bronze.king_co_homes")
                 .where(f"ST_Intersects(geometry, ST_GeomFromWKT('{_aoi}'))")
                 .withColumn("geometry_buffer", expr("ST_Buffer(geometry, 500, true)"))
     )
@@ -234,7 +234,7 @@ JOIN
 ON
     a.sale_id = b.sale_id
 
-""").drop("geometry_buffer").writeTo(f"org_catalog.{database}.king_co_homes").createOrReplace()
+""").drop("geometry_buffer").writeTo(f"org_catalog.{database}.house_sales_silver").createOrReplace()
 
 
 # In[ ]:
