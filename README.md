@@ -234,7 +234,7 @@ Below are estimated runtimes and costs for Week 3 jobs and notebooks.
 Estimates assume normal workloads in US East or US West regions.
 
 | Notebook                    | Suggested Runtime           | Estimated Cost (Includes Start-Up Time) |
-| --------------------------- | --------------------------- | --------------------------------------- |
+|-----------------------------| --------------------------- |-----------------------------------------|
 | data-joins                  | Tiny                        | 2.5 min / $0.31                         |
 | conflation                  | Small (with bounding area)  | 3.5 min / $0.79                         |
 | nearest-road-point          | Tiny                        | 4 min / $0.50                           |
@@ -244,6 +244,7 @@ Estimates assume normal workloads in US East or US West regions.
 | nearest                     | Tiny                        | 3 min / $0.39                           |
 | raster-ndvi                 | Tiny (with bounding area)   | 7 min / $0.90                           |
 | raster-zonal-stats          | Tiny (with bounding area)   | 4 min / $0.50                           |
+| raster-conflation           | Tiny (with bounding area)   | ~11 s / $0.02                           |
 | area-weighted-interpolation | Medium (with bounding area) | 8 min / $10.00                          |
 
 > 💡 **Tip:** Use bounding boxes wherever possible to lower runtime and cost.

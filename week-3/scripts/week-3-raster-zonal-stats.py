@@ -49,22 +49,11 @@ _aoi = wkls.us.wa.kirkland.wkt()
 # In[ ]:
 
 
-try:
-    print("**** Trying to load house_sales_silver dataset from gde_silver database **** \n\n")
-    house_sales_df = (
-        sedona.table(f"org_catalog.gde_silver.house_sales_silver")
-                .where(f"ST_Intersects(geometry, ST_GeomFromWKT('{_aoi}'))")
-                .withColumn("geometry_buffer", expr("ST_Buffer(geometry, 500, true)"))
-    )
-    print("**** house_sales_silver dataset found and loaded. **** \n\n")
-except AnalysisException as e:
-    print("**** house_sales_silver table doesn't exist, reading the gde_bronze.house_sales_bronze **** \n\n")
-
-    house_sales_df = (
-        sedona.table(f"org_catalog.gde_bronze.king_co_homes")
-                .where(f"ST_Intersects(geometry, ST_GeomFromWKT('{_aoi}'))")
-                .withColumn("geometry_buffer", expr("ST_Buffer(geometry, 500, true)"))
-    )
+house_sales_df = (
+    sedona.table(f"org_catalog.gde_bronze.king_co_homes")
+            .where(f"ST_Intersects(geometry, ST_GeomFromWKT('{_aoi}'))")
+            .withColumn("geometry_buffer", expr("ST_Buffer(geometry, 500, true)"))
+)
 
 
 house_sales_df.createOrReplaceTempView("house_sales")
@@ -118,34 +107,19 @@ FROM
 
 # In[ ]:
 
-print("**** Writing out the zonal stats enriched house sales to gde_silver.house_sales_silver **** \n\n")
+print("**** Writing out the zonal stats enriched house sales to gde_silver.house_sales_zonal_silver **** \n\n")
 
-(zonal_stats.drop("geometry_buffer", "zonal_stats") # Dropping unnecessary columns before writing it out to a table
-        .writeTo("org_catalog.gde_silver.house_sales_silver")
+(zonal_stats.select("sale_id", "elevation_min", "elevation_max", "elevation_mean", "elevation_standard_deviation")
+        .writeTo("org_catalog.gde_silver.house_sales_zonal_silver")
         .createOrReplace()
 )
 
-
 # # TRI enrichment
-# 
-# Re-reading the `house_sales_silver` table with elevation stats in it.
-
-# In[ ]:
-
-print("**** Re-reading the house_sales_silver table for TRI enrichment **** \n\n")
-
-house_sales_df = (
-    sedona.table(f"org_catalog.gde_silver.house_sales_silver")
-            .where(f"ST_Intersects(geometry, ST_GeomFromWKT('{_aoi}'))")
-            .withColumn("geometry_buffer", expr("ST_Buffer(geometry, 500, true)"))
-)
-
-
-house_sales_df.createOrReplaceTempView("house_sales")
-
-
+#
+# Using the same bronze `king_co_homes` table's dataframe `house_sales_df`.
+#
 # ## Clipping the elevation raster to AOI
-# 
+#
 # Over here the AOI is the house buffered polygons.
 
 # In[ ]:
@@ -224,14 +198,14 @@ SELECT
 
 FROM tri_raster
 
-""").drop("zonal_stats", "geometry_buffer", "clipped_rast", "tri_raster")
+""").select("sale_id", "mean_tri")
 
 
 # In[ ]:
 
 print("**** Writing out the TRI enriched house sales to gde_silver.house_sales_silver **** \n\n")
 
-tri_enriched.writeTo("org_catalog.gde_silver.house_sales_silver").createOrReplace()
+tri_enriched.writeTo("org_catalog.gde_silver.house_sales_tri_silver").createOrReplace()
 
 
 # In[ ]:
